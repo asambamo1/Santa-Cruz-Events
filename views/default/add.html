@@ -1,0 +1,62 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+<style>
+body {
+    background-color: #e6e6fa;
+}
+
+.btn {
+  background: #b1d1e6;
+  background-image: -webkit-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -moz-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -ms-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -o-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: linear-gradient(to bottom, #b1d1e6, #209ae6);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #b3d1e3;
+  background-image: -webkit-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -moz-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -ms-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -o-linear-gradient(top, #b3d1e3, #004675);
+  background-image: linear-gradient(to bottom, #b3d1e3, #004675);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+</style>
+
+<h2>Adding a new Post</h2>
+<br>
+{{=form.custom.begin}}
+    Title: <div>{{=form.custom.widget.title}}</div>
+    Phone: <div>{{=form.custom.widget.phone}}</div>
+    Minimum Age: <div>{{=form.custom.widget.minimum_age}}</div>
+    Fees: <div>{{=form.custom.widget.fees}}</div>
+    Expected Size: <div>{{=form.custom.widget.expected_size}}</div>
+    Date of Event: <div>{{=form.custom.widget.date_of_event}}</div>
+    Time of Event: <div>{{=form.custom.widget.time_of_event}}</div>
+    Location of Event: <div>{{=form.custom.widget.location_of_event}}</div>
+    Description: <div>{{=form.custom.widget.post_content}}</div>
+    {{=form.custom.submit}}
+    {{=A('Back', _class='btn', _href=URL('default', 'index'))}}
+{{=form.custom.end}}

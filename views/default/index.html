@@ -1,0 +1,67 @@
+{{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
+{{extend 'layout.html'}}
+
+{{block head}}
+<style>
+body {
+    background-color: #e6e6fa;
+}
+
+#post_content_box{
+    border-radius: 5px;
+    border-style: dotted;
+    border-color: rgba(100, 75, 112, 30);
+    border-width: 2px;
+    background-color: #E0FFF0;
+
+    padding-top: 25px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+#post_title{
+    font-size: 200%;
+}
+
+#post_dates{
+    font-size: 75%;
+    font-style:italic;
+}
+</style>
+{{end}}
+
+<img src="/scevents/static/images/SC.jpg">
+
+</br> 
+<h1>Welcome to SCEvents!</h1>
+
+
+<div id='post_content_box'>
+  <p>
+      This is a website for people or groups that need a place to spread the word of their event. 
+      Below you can see what events are happening this month. You can view, comment, and create your own. 
+      User submitted events will need a few days to be validated by the administrators of this site before they are posted.	 
+  </p>
+</div>
+
+</br>
+
+<div style="width: 237px;"><iframe style="display: block;" src="http://cdn1.willyweather.com/widget/loadView.html?id=11609" width="237" height="65" frameborder="0" scrolling="no"></iframe><a style="margin: -65px 0 0 0;z-index: 1;height: 65px;width: 20px;text-indent: -9999em;float: right;position: relative;display: block" href="http://www.willyweather.com/ca/santa-cruz-county/santa-cruz.html">Santa Cruz Weather Information</a></div>
+
+<h1>Featured Events</h1>
+</br>
+
+{{for post in posts:}}
+    {{if post.post_approved == True:}}
+        <div id='post_content_box'>
+            {{=A(post.title, _id='post_title', _href=URL('default', 'post', args=[post.id]))}}
+            <p id='post_dates'>
+                Post Created: {{=post.creation_date}} by <b>{{=post.author}}</b>
+                -----
+                Last Modified: {{=post.modified_date}}
+            </p>
+        </div>
+    {{pass}}
+{{pass}}

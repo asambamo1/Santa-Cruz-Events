@@ -1,0 +1,69 @@
+{{extend 'layout.html'}}
+
+<style>
+body {
+    background-color: #e6e6fa;
+}
+.btn {
+  background: #b1d1e6;
+  background-image: -webkit-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -moz-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -ms-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: -o-linear-gradient(top, #b1d1e6, #209ae6);
+  background-image: linear-gradient(to bottom, #b1d1e6, #209ae6);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #b8f4ff;
+  font-size: 13px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #b3d1e3;
+  background-image: -webkit-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -moz-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -ms-linear-gradient(top, #b3d1e3, #004675);
+  background-image: -o-linear-gradient(top, #b3d1e3, #004675);
+  background-image: linear-gradient(to bottom, #b3d1e3, #004675);
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+
+
+</style>
+
+
+<h2>{{=T( request.args(0).replace('_',' ').capitalize() )}}</h2>
+<div id="web2py_user_form">
+{{
+if request.args(0)=='login' and not session.auth_2_factor_user:
+    if not 'register' in auth.settings.actions_disabled:
+        form.add_button(T('Register'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn')
+    pass
+    if not 'request_reset_password' in auth.settings.actions_disabled:
+        form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn')
+    pass
+pass
+=form
+}}
+</div>
+<script language="javascript"><!--
+jQuery("#web2py_user_form input:visible:enabled:first").focus();
+{{if request.args(0)=='register':}}
+    web2py_validate_entropy(jQuery('#auth_user_password'),100);
+{{elif request.args(0) in ('change_password','reset_password'):}}
+    web2py_validate_entropy(jQuery('#no_table_new_password'),100);
+{{pass}}
+//--></script>

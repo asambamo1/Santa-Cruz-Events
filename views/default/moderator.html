@@ -1,0 +1,99 @@
+{{extend 'layout.html'}}
+
+{{block head}}
+<style>
+#post_title{
+    /* Causes font to be in all caps. */
+    font-variant: small-caps;
+
+    padding-bottom: 2px;
+    font-weight: bold;
+    font-size: 125%;
+}
+
+#post_content_box{
+    border-radius: 5px;
+    border-style: dotted;
+    border-color: rgba(100, 125, 112, 30);
+    border-width: 2px;
+    background-color: #F0FFF0;
+
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+#comment_content_box{
+    border-radius: 5px;
+    border-style: dotted;
+    border-color: rgba(100, 75, 112, 30);
+    border-width: 2px;
+    background-color: #E0FFF0;
+
+    padding-top: 15px;
+    padding-right: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+
+    margin-bottom: 15px;
+}
+
+#post_dates{
+    font-size: 75%;
+    font-style:italic;
+}
+
+#comment_dates{
+    font-size: 75%;
+    font-style:italic;
+}
+
+ol{
+    list-style-type: none;
+}
+</style>
+{{end}}
+
+<h1 id='post_title'>Posts and Comments for Moderation</h1>
+
+<hr>
+
+<div>
+    <h3 id='post_title'>Posts</h3>
+    <ol id='post_list'>
+        {{for post in posts:}}
+        <li id='post_content_box'>
+            <p id='post_id' style="display:none;">{{=post.id}}</p>
+            <p id='post_title'>{{=post.title}}</p>
+            <p id='post_content'>{{=post.post_content}}</p>
+            <p id='post_dates'>
+                Post Created: {{=post.creation_date}} by <b>{{=post.author}}</b>
+                -----
+                Last Modified: {{=post.modified_date}}
+            </p>
+            {{=A(T('Edit or Delete'), _class='btn', _href=URL('default', 'edit', args=[post.id]))}}
+        </li>
+        {{pass}}
+    </ol>
+</div>
+
+<hr>
+
+<div>
+    <h3 id='post_title'>Comments</h3>
+    <ol id='comment_list'>
+        {{for comment in comments:}}
+        <li id='comment_content_box'>
+            <p id='comment_id' style="display:none;">{{=comment.id}}</p>
+            <p id='comment_content'>{{=comment.comment_content}}</p>
+            <p id='comment_dates'>
+                Post Created: {{=comment.creation_date}} by <b>{{=comment.author}}</b>
+                -----
+                Last Modified: {{=comment.modified_date}}
+            </p>
+            {{=A(T('Edit or Delete'), _class='btn', _href=URL('default', 'edit_comment', args=[comment.id]))}}
+        </li>
+        {{pass}}
+    </ol>
+</div>

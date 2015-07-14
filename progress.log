@@ -1,0 +1,26 @@
+[2014-12-14 22:55:23] START
+[2014-12-14 22:55:23] DELETE project/views/default/edit.html: -2
+[2014-12-14 22:55:28] DELETE project/views/default/add_comment.html: -42
+[2014-12-14 22:55:31] DELETE project/views/default/edit_comment.html: -2
+[2014-12-14 22:55:40] DELETE project/views/default/read_comment.html: -41
+[2014-12-14 22:56:24] EDIT project/controllers/default.py: -82
+[2014-12-14 22:58:45] EDIT project/views/default/user.html: 0
+[2014-12-14 23:01:00] EDIT project/controllers/default.py: 0
+[2014-12-14 23:04:33] EDIT project/views/default/add.html: 11
+[2014-12-14 23:04:55] EDIT project/views/default/add.html: 0
+[2014-12-14 23:05:14] EDIT project/views/default/add.html: 0
+[2014-12-14 23:05:28] EDIT project/views/default/add.html: -1
+[2014-12-14 23:05:41] EDIT project/views/default/add.html: -1
+[2014-12-14 23:08:12] EDIT project/views/default/add.html: 0
+[2014-12-14 23:08:29] EDIT project/views/default/add.html: 0
+[2014-12-14 23:09:34] EDIT project/controllers/default.py: 0
+[2014-12-14 23:15:18] EDIT project/views/default/add.html: 2
+[2014-12-14 23:28:58] CREATE default/edit.html: 0
+[2014-12-14 23:29:07] EDIT project/views/default/edit.html: -1
+[2014-12-14 23:29:33] EDIT project/controllers/default.py: 26
+[2014-12-14 23:31:42] EDIT project/controllers/default.py: 0
+[2014-12-14 23:35:29] CREATE default/edit_comment.html: 0
+[2014-12-14 23:35:37] EDIT project/views/default/edit_comment.html: -1
+[2014-12-14 23:37:20] EDIT project/controllers/default.py: 28
+[2014-12-14 23:37:37] EDIT project/controllers/default.py: 0
+[2014-12-14 23:44:20] EDIT project/controllers/default.py: 28
